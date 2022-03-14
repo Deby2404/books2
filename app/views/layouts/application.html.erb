@@ -25,7 +25,7 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li>
-              <i class="fa-solid fa-right-from-bracket"></i><%= link_to "Log out", root_path, method: :delete, class: 'nav-link text-dark' %>
+              <i class="fa-solid fa-right-from-bracket"></i><%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <li>
               <i class="fa-solid fa-house-chimney"></i><%= link_to 'Home', root_path, class: 'nav-link text-dark' %>
