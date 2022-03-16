@@ -8,6 +8,6 @@
  <label for="inputImage">Image</label>
  <%= f.file_field :image, placeholder: "image", accept: "image/*" %>
  <label for="inputText">Introduction</label>
- <%= f.file_field :body, placeholder: "introduction" %>
+ <%= f.text_area :body, placeholder: "introduction" %>
  <%= f.submit "Update User" %>
  <% end %>
