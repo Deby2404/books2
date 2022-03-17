@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://your-site-or-cdn.com/fontawesome/v5.15.4/js/all.js" data-auto-a11y="true" ></script>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -25,29 +26,29 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li>
-              <i class="fa-solid fa-right-from-bracket text-light"></i><%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+              <i class="fas fa-right-from-bracket nav-link text-light"></i><%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
             </li>
             <li>
-              <i class="fa-solid fa-house-chimney text-light"></i><%= link_to 'Home', root_path, class: 'nav-link text-light' %>
+              <i class="fas fa-house-chimney nav-link text-light"></i><%= link_to 'Home', root_path, class: 'nav-link text-light' %>
             </li>
             <li>
-              <i class="fa-solid fa-users text-light"></i><%= link_to 'Users', users_path, class: 'nav-link text-light' %>
+              <i class="fas fa-users nav-link text-light"></i><%= link_to 'Users', users_path, class: 'nav-link text-light' %>
             </li>
             <li>
-              <i class="fa-solid fa-book-open-cover text-light"></i><%= link_to 'Books', books_path, class: 'nav-link text-light' %>
+              <i class="fas fa-book-open nav-link text-light"></i><%= link_to 'Books', books_path, class: 'nav-link text-light' %>
             </li>
             <% else %>
             <li>
-              <i class="fa-solid fa-house-chimney text-light"></i><%= link_to 'Home', root_path, class: 'nav-link text-light' %>
+              <i class="fas fa-house-chimney nav-link text-light"></i><%= link_to 'Home', root_path, class: 'nav-link text-light' %>
             </li>
             <li>
-              <i class="fa-solid fa-link text-light"></i><%= link_to 'About', about_path, class: 'nav-link text-light' %>
+              <i class="fas fa-link nav-link text-light"></i><%= link_to 'About', about_path, class: 'nav-link text-light' %>
             </li>
             <li>
-              <i class="fa-solid fa-user-plus text-light"></i><%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-light' %>
+              <i class="fas fa-user-plus nav-link text-light"></i><%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-light' %>
             </li>
             <li>
-              <i class="fa-solid fa-right-to-bracket text-light"></i><%= link_to "Log in", new_user_session_path, class: 'nav-link text-light' %>
+              <i class="fas fa-right-to-bracket nav-link text-light"></i><%= link_to "Log in", new_user_session_path, class: 'nav-link text-light' %>
             </li>
             <% end %>
             </ul>
@@ -55,9 +56,13 @@
         </div>
       </nav>
     </header>
-    <%= yield %>
+    <main>
+     <% flash.each do |key, value| %>
+   　 <%= content_tag(:div, value, class: "#{key}") %>
+     <% end %>
+     <%= yield %>
+    </main>
    </div>
-
     <footer class="text-black pt-5 pb-4">
       <div class="container-fluid">
         <div class="row text-center">
