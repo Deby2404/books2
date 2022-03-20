@@ -14,16 +14,14 @@
  *= require_self
  */
 
-footer {
-  margin-top: 48px;
-  margin-left: 77px;
-  margin-right: 77px;
-  padding-right: 15px;
-  padding-left: 15px;
+.icon::before {
+  content: "\f015";
+  font-family: "Font Awesome 5 Free";
 }
 
-.footer-text {
-  color: red;
+svg {
+  display: inline-block;
+
 }
 
 
